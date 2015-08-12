@@ -1,2 +1,2 @@
 # libtincent
-android util library
+android app util library
