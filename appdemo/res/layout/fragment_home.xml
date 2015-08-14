@@ -47,7 +47,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能一" />
+            android:text="IP地址查询" />
 
         <TextView
             android:id="@+id/txtFuction2"

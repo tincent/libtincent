@@ -4,10 +4,10 @@
 package com.tincent.demo.fragment;
 
 import com.tincent.android.http.TXResponseEvent;
-import com.tincent.android.util.TXToastUtil;
 import com.tincent.android.view.TXPageIndicator;
 import com.tincent.demo.R;
 import com.tincent.demo.activity.HomeActivity;
+import com.tincent.demo.activity.IPCheckActivity;
 import com.tincent.demo.activity.TestActivity;
 import com.tincent.demo.adapter.AdBannerAdapter;
 
@@ -71,6 +71,8 @@ public class HomeFragment extends BaseFragment {
 			homeActivity.toggleLeftMenu();
 			break;
 		case R.id.txtFuction1:
+			startActivity(new Intent(getActivity(), IPCheckActivity.class));
+			break;
 		case R.id.txtFuction2:
 		case R.id.txtFuction3:
 		case R.id.txtFuction4:

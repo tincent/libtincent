@@ -4,10 +4,11 @@
     <string name="app_name">AppDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    
     <string name="errcode_success">发送成功</string>
     <string name="errcode_cancel">发送取消</string>
     <string name="errcode_deny">发送被拒绝</string>
     <string name="errcode_unknown">发送返回</string>
+    <string name="ip_area">地址：%s</string>
+    <string name="ip_location">位置：%s</string>
 
 </resources>

@@ -68,6 +68,12 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         
+        <!-- IP地址查询 -->
+        <activity
+            android:name="com.tincent.demo.activity.IPCheckActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        
         <!-- 微信分享回馈界面 -->
         <activity
             android:name="com.tincent.demo.wxapi.WXEntryActivity"

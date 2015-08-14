@@ -6,10 +6,39 @@
 
     <include layout="@layout/header_bar" />
 
-    <Button
-        android:id="@+id/check"
+    <EditText
+        android:id="@+id/edtDomain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查询" />
+        android:layout_margin="20dp"
+        android:padding="2dp"
+        android:background="@drawable/shurukuang"
+        android:hint="请输入网址：www.baidu.com" />
+
+    <Button
+        android:id="@+id/query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/blue_button_bg"
+        android:padding="5dp"
+        android:text="查询"
+        android:textColor="@drawable/white_text_color" />
+
+    <TextView
+        android:id="@+id/txtArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="地区：" />
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="地区：" />
 
 </LinearLayout>
