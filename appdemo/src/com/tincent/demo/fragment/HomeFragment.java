@@ -6,6 +6,7 @@ package com.tincent.demo.fragment;
 import com.tincent.android.http.TXResponseEvent;
 import com.tincent.android.view.TXPageIndicator;
 import com.tincent.demo.R;
+import com.tincent.demo.activity.FoodAndDrinkActivity;
 import com.tincent.demo.activity.HomeActivity;
 import com.tincent.demo.activity.IPCheckActivity;
 import com.tincent.demo.activity.TestActivity;
@@ -74,6 +75,8 @@ public class HomeFragment extends BaseFragment {
 			startActivity(new Intent(getActivity(), IPCheckActivity.class));
 			break;
 		case R.id.txtFuction2:
+			startActivity(new Intent(getActivity(), FoodAndDrinkActivity.class));
+			break;
 		case R.id.txtFuction3:
 		case R.id.txtFuction4:
 		case R.id.txtFuction5:

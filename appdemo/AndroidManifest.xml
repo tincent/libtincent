@@ -43,7 +43,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        
+
         <!-- 测试界面 -->
         <activity
             android:name="com.tincent.demo.activity.TestActivity"
@@ -67,13 +67,25 @@
             android:name="com.tincent.demo.activity.WebviewActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
-        
+
         <!-- IP地址查询 -->
         <activity
             android:name="com.tincent.demo.activity.IPCheckActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
-        
+
+        <!-- 推荐饮食界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.FoodDrinkActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+
+        <!-- 饮食意见界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.FoodAndDrinkActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+
         <!-- 微信分享回馈界面 -->
         <activity
             android:name="com.tincent.demo.wxapi.WXEntryActivity"

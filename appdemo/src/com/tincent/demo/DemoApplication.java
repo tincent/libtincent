@@ -8,6 +8,7 @@ import com.tincent.android.TXAbsApplication;
 import com.tincent.android.util.TXImageUtil;
 import com.tincent.android.util.TXToastUtil;
 import com.tincent.demo.manager.DemoManager;
+import com.tincent.demo.util.DatabaseUtil;
 
 /**
  * 应用全局类
@@ -30,7 +31,9 @@ public class DemoApplication extends TXAbsApplication {
 	@Override
 	public void run() {
 		// 初始化耗时操作，如：创建或更新数据库
+		DatabaseUtil.getInstatnce().init(this);
 		TXToastUtil.getInstatnce().showMessage("听讯科技示例程序己启动");
+		
 	}
 
 	@Override
