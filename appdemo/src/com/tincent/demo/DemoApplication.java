@@ -7,6 +7,7 @@ import com.lidroid.xutils.bitmap.BitmapGlobalConfig;
 import com.tincent.android.TXAbsApplication;
 import com.tincent.android.util.TXImageUtil;
 import com.tincent.android.util.TXToastUtil;
+import com.tincent.demo.manager.DaoManager;
 import com.tincent.demo.manager.DemoManager;
 import com.tincent.demo.util.DatabaseUtil;
 
@@ -22,6 +23,8 @@ public class DemoApplication extends TXAbsApplication {
 		super.onCreate();
 		// 初始应用管理器
 		DemoManager.getInstance().init(this);
+		// 初始化数据库访问管理器
+		DaoManager.getInstance().init(this);
 		// 初始化图片加载器，并且创建缓存目录
 		TXImageUtil.getInstance().init(this, Constants.CACHE_DIR);
 		// 初始化Xutils图片加载器
@@ -33,7 +36,7 @@ public class DemoApplication extends TXAbsApplication {
 		// 初始化耗时操作，如：创建或更新数据库
 		DatabaseUtil.getInstatnce().init(this);
 		TXToastUtil.getInstatnce().showMessage("听讯科技示例程序己启动");
-		
+
 	}
 
 	@Override

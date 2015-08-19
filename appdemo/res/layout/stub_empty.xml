@@ -16,7 +16,7 @@
         android:drawablePadding="35dp"
         android:drawableTop="@drawable/ic_launcher"
         android:gravity="center"
-        android:text="点击刷新"
+        android:text="无数据"
         android:textSize="15sp" />
 
 </RelativeLayout>

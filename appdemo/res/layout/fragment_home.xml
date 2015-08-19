@@ -67,7 +67,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能三" />
+            android:text="听讯日记本" />
     </LinearLayout>
 
     <LinearLayout

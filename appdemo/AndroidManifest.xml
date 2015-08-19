@@ -85,6 +85,18 @@
             android:name="com.tincent.demo.activity.FoodAndDrinkActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+        
+        <!-- 日记列表界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.NotesActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        
+        <!-- 日记创建界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.AddNoteActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
         <!-- 微信分享回馈界面 -->
         <activity
