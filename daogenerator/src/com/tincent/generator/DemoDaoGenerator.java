@@ -16,38 +16,21 @@ public class DemoDaoGenerator {
 	public static void main(String[] args) throws Exception {
 		Schema schema = new Schema(1, "com.tincent.dao");
 
-		addCarePlan(schema);
+		addNote(schema);
 
 		new DaoGenerator().generateAll(schema, "../appdemo/src-gen");
 	}
 
-	private static void addCarePlan(Schema schema) {
+	private static void addNote(Schema schema) {
 
-		Entity motionType = schema.addEntity("MotionType");
-		motionType.addIdProperty();
-		motionType.addStringProperty("PlanId").notNull();
-		motionType.addStringProperty("PatientId").notNull();
-		motionType.addStringProperty("PlanTypeId").notNull();
-		motionType.addStringProperty("PlanTypeName").notNull();
-		motionType.addStringProperty("MotionTypeId").notNull();
-		motionType.addStringProperty("MotionTypeName").notNull();
-		motionType.addIntProperty("MotionDuration").notNull();
-		motionType.addIntProperty("MotionInterval").notNull();
-		motionType.addIntProperty("MotionFrequency").notNull();
-		motionType.addStringProperty("ReservedOne").notNull();
-		motionType.addStringProperty("ReservedTwo").notNull();
-
-		Entity motionRecord = schema.addEntity("MotionRecord");
-		motionRecord.addIdProperty();
-		motionRecord.addStringProperty("PlanId").notNull();
-		motionRecord.addStringProperty("PatientId").notNull();
-		motionRecord.addStringProperty("PlanTypeId").notNull();
-		motionRecord.addStringProperty("PlanTypeName").notNull();
-		motionRecord.addStringProperty("MotionTypeId").notNull();
-		motionRecord.addStringProperty("MotionTypeName").notNull();
-		motionRecord.addDateProperty("MotionDay").notNull();
-		motionRecord.addIntProperty("MotionDuration").notNull();
-		motionRecord.addStringProperty("MotionWeek").notNull();
+		Entity note = schema.addEntity("NoteRecord");
+		note.addIdProperty();
+		note.addStringProperty("NoteTitle").notNull();
+		note.addStringProperty("NoteAuthor").notNull();
+		note.addStringProperty("NoteContent").notNull();
+		note.addLongProperty("TimeStamp").notNull();
+		note.addDateProperty("CreateTime").notNull();
+		note.addDateProperty("UpdateTime").notNull();
 
 	}
 
