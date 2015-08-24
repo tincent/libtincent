@@ -40,7 +40,7 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
 		case FRAGMENT_NEWS:
 			return new NewsFragment();
 		case FRAGMENT_MINE:
-			return new HomeFragment();
+			return new MineFragment();
 		default:
 			return null;
 		}

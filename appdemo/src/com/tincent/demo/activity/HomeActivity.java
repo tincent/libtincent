@@ -29,11 +29,10 @@ public class HomeActivity extends BaseActivity implements OnPageChangeListener, 
 	private ViewPager viewPager;
 	private LayoutInflater layoutInflater;
 	private SlidingMenu slideLeftMenu;
-	private SlidingMenu slideRightMenu;
 
 	@Override
 	public void onClick(View v) {
-		
+
 	}
 
 	@Override
@@ -68,7 +67,7 @@ public class HomeActivity extends BaseActivity implements OnPageChangeListener, 
 		tabHost.addTab(tabHost.newTabSpec("资讯").setIndicator(layoutInflater.inflate(R.layout.tab_news, null)).setContent(android.R.id.tabcontent));
 		tabHost.addTab(tabHost.newTabSpec("我的").setIndicator(layoutInflater.inflate(R.layout.tab_mine, null)).setContent(android.R.id.tabcontent));
 
-		// configure the SlidingMenu
+		// configure the Left SlidingMenu
 		slideLeftMenu = new SlidingMenu(this);
 		slideLeftMenu.setMode(SlidingMenu.LEFT);
 		slideLeftMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
@@ -85,13 +84,13 @@ public class HomeActivity extends BaseActivity implements OnPageChangeListener, 
 		slideLeftMenu.findViewById(R.id.online_book).setOnClickListener(this);
 		slideLeftMenu.findViewById(R.id.love_info).setOnClickListener(this);
 		slideLeftMenu.findViewById(R.id.visitor_note).setOnClickListener(this);
-		
+
 	}
-	
+
 	public void toggleLeftMenu() {
 		slideLeftMenu.toggle();
 	}
-	
+
 	public boolean isLeftMenuShowing() {
 		return slideLeftMenu.isMenuShowing();
 	}

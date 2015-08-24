@@ -49,6 +49,12 @@
             android:name="com.tincent.demo.activity.TestActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+        
+         <!-- 设置界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.SettingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
         <!-- 图片显示界面 -->
         <activity

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relaUserTop"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/header_user_bg"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp" >
+
+    <com.tincent.android.view.TXCircularImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/banner_stub"
+        app:border_color="@android:color/white"
+        app:border_width="2dp" />
+
+    <TextView
+        android:id="@+id/txtSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/imgAvatar"
+        android:text="男" />
+
+    <TextView
+        android:id="@+id/txtNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtSex"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imgAvatar"
+        android:text="思者行远" />
+
+    <TextView
+        android:id="@+id/txtBirthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtSex"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/imgAvatar"
+        android:text="1988年4月26" />
+
+</RelativeLayout>
