@@ -9,13 +9,12 @@
 
     <include layout="@layout/header_user" />
 
-    <com.tincent.demo.view.PagerSlidingTabStrip
+    <com.tincent.android.view.TXPagerSlidingTabStrip
         android:id="@+id/tab_strip"
         android:layout_width="match_parent"
         android:layout_height="40dip"
         android:background="@android:color/white"
-        android:visibility="visible"
-         />
+        android:visibility="visible" />
 
     <View
         android:layout_width="match_parent"

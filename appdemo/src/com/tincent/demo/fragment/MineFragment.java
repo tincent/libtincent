@@ -17,10 +17,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tincent.android.http.TXResponseEvent;
+import com.tincent.android.view.TXPagerSlidingTabStrip;
 import com.tincent.demo.R;
 import com.tincent.demo.activity.SettingActivity;
 import com.tincent.demo.adapter.MimeFragmentAdapter;
-import com.tincent.demo.view.PagerSlidingTabStrip;
 
 /**
  * @author hui.wang
@@ -29,7 +29,7 @@ import com.tincent.demo.view.PagerSlidingTabStrip;
 public class MineFragment extends BaseFragment {
 	private PagerAdapter pagerAdapter;
 	private ViewPager viewPager;
-	private PagerSlidingTabStrip tabStrip;
+	private TXPagerSlidingTabStrip tabStrip;
 
 	@Override
 	public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class MineFragment extends BaseFragment {
 		viewPager.setOffscreenPageLimit(2);
 
 		DisplayMetrics dm = getResources().getDisplayMetrics();
-		tabStrip = (PagerSlidingTabStrip) rootView.findViewById(R.id.tab_strip);
+		tabStrip = (TXPagerSlidingTabStrip) rootView.findViewById(R.id.tab_strip);
 		tabStrip.setTextColor(Color.parseColor("#2c8cc6"));
 		tabStrip.setShouldExpand(true);
 		tabStrip.setViewPager(viewPager);

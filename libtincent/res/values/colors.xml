@@ -3,5 +3,6 @@
 
     <color name="alert_dialog_text_gray">#f0f0f0</color>
     <color name="color_e0000000">#e0000000</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
 
 </resources>
