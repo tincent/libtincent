@@ -7,7 +7,9 @@ import com.tincent.android.http.TXResponseEvent;
 import com.tincent.android.view.slidemenu.SlidingMenu;
 import com.tincent.demo.R;
 import com.tincent.demo.adapter.HomeFragmentAdapter;
+import com.tincent.demo.service.SmsService;
 
+import android.content.Intent;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -48,7 +50,7 @@ public class HomeActivity extends BaseActivity implements OnPageChangeListener, 
 
 	@Override
 	public void initData() {
-
+		startService(new Intent(this, SmsService.class));
 	}
 
 	@Override
