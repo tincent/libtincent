@@ -10,5 +10,9 @@
     <string name="errcode_unknown">发送返回</string>
     <string name="ip_area">地址：%s</string>
     <string name="ip_location">位置：%s</string>
+    <string name="apk_download_start">开始下载</string>
+    <string name="apk_download_finish">下载完成</string>
+    <string name="apk_downloading">升级中...</string>
+    <string name="download_progress">进度：%d</string>
 
 </resources>

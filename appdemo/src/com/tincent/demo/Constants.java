@@ -73,6 +73,10 @@ public class Constants {
 	 */
 	public static final String APK_DIR = APP_DIR + "apk/";
 	/**
+	 * 安装包后缀
+	 */
+	public static final String APK_SUBFIX = ".apk";
+	/**
 	 * app log文件夹
 	 */
 	public static final String LOG_DIR = APP_DIR + "log/";
@@ -80,5 +84,29 @@ public class Constants {
 	 * app 数据库文件夹
 	 */
 	public static final String DB_DIR = APP_DIR + "db/";
+	/**
+	 * 安装包地址
+	 */
+	public static final String KEY_APK_URL = "apk_url";
+	/**
+	 * 安装包版本号
+	 */
+	public static final String KEY_APK_CODE = "apk_code";
+	/**
+	 * 安装包MD5
+	 */
+	public static final String KEY_APK_MD5 = "apk_md5";
+	/**
+	 * 文件目录
+	 */
+	public static final String KEY_FILE_DIR = "file_dir";
+	/**
+	 * 文件后缀
+	 */
+	public static final String KEY_FILE_SUBFIX = "file_subfix";
+	/**
+	 * 自动下载
+	 */
+	public static final String KEY_AUTO_DOWNLOAD = "auto_download";
 
 }

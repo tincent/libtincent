@@ -85,7 +85,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能四" />
+            android:text="下载安装包" />
 
         <TextView
             android:id="@+id/txtFuction5"

@@ -110,6 +110,9 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait" />
+        
+        <!-- 后台下载服务 -->
+        <service android:name="com.tincent.demo.service.DownloadService" />
     </application>
 
 </manifest>

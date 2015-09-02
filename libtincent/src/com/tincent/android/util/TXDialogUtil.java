@@ -8,6 +8,8 @@ import com.tincent.android.R;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -44,8 +46,11 @@ public class TXDialogUtil {
 		TextView no = (TextView) window.findViewById(R.id.no);
 		// yes.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 		// no.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
-		if (!title.equals("")) {
+		if (!TextUtils.isEmpty(title)) {
 			tvTitle.setText(title);
+			tvTitle.setVisibility(View.VISIBLE);
+		} else {
+			tvTitle.setVisibility(View.GONE);
 		}
 		tvMsg.setText(msg);
 		yes.setOnClickListener(listener);
