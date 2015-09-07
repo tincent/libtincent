@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_bar" />
+    
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="时间：" />
+    
+    <TextView
+        android:id="@+id/txtCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="国家：" />
+    
+    <TextView
+        android:id="@+id/txtProvince"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="省份：" />
+    
+    <TextView
+        android:id="@+id/txtCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="城市：" />
+    
+    <TextView
+        android:id="@+id/txtDistrict"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="区域：" />
+    
+    <TextView
+        android:id="@+id/txtStreet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="街道：" />
+    
+    <TextView
+        android:id="@+id/txtNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="号码：" />
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="详细地址：" />
+
+    <Button
+        android:id="@+id/btnLocate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/blue_button_bg"
+        android:padding="5dp"
+        android:text="重新定位"
+        android:textColor="@drawable/white_text_color" />
+
+</LinearLayout>
