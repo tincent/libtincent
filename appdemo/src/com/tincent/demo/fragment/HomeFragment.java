@@ -13,6 +13,7 @@ import com.tincent.demo.R;
 import com.tincent.demo.activity.FoodAndDrinkActivity;
 import com.tincent.demo.activity.HomeActivity;
 import com.tincent.demo.activity.IPCheckActivity;
+import com.tincent.demo.activity.LocationActivity;
 import com.tincent.demo.activity.NotesActivity;
 import com.tincent.demo.activity.TestActivity;
 import com.tincent.demo.adapter.AdBannerAdapter;
@@ -113,6 +114,8 @@ public class HomeFragment extends BaseFragment {
 
 			break;
 		case R.id.txtFuction5:
+			startActivity(new Intent(getActivity(), LocationActivity.class));
+			break;
 		case R.id.txtFuction6:
 		case R.id.txtFuction7:
 		case R.id.txtFuction8:

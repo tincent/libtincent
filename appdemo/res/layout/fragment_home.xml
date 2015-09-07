@@ -95,7 +95,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能五" />
+            android:text="百度定位" />
 
         <TextView
             android:id="@+id/txtFuction6"
