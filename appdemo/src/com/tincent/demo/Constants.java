@@ -35,7 +35,7 @@ public class Constants {
 	/**
 	 * 微信分享APP标识
 	 */
-	public static final String WEIXIN_APP_ID = "wx7d7a91dccab54499";
+	public static final String WEIXIN_APP_ID = "wx22520fdd33fd806a";
 	/**
 	 * 网页标题
 	 */
