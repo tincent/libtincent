@@ -10,9 +10,11 @@ import com.tincent.android.util.TXToastUtil;
 import com.tincent.android.view.TXPageIndicator;
 import com.tincent.demo.Constants;
 import com.tincent.demo.R;
+import com.tincent.demo.activity.AppListMenuActivity;
 import com.tincent.demo.activity.FoodAndDrinkActivity;
 import com.tincent.demo.activity.HomeActivity;
 import com.tincent.demo.activity.IPCheckActivity;
+import com.tincent.demo.activity.ListMenuActivity;
 import com.tincent.demo.activity.LocationActivity;
 import com.tincent.demo.activity.NotesActivity;
 import com.tincent.demo.activity.TestActivity;
@@ -117,7 +119,11 @@ public class HomeFragment extends BaseFragment {
 			startActivity(new Intent(getActivity(), LocationActivity.class));
 			break;
 		case R.id.txtFuction6:
+			startActivity(new Intent(getActivity(), ListMenuActivity.class));
+			break;
 		case R.id.txtFuction7:
+			startActivity(new Intent(getActivity(), AppListMenuActivity.class));
+			break;
 		case R.id.txtFuction8:
 		case R.id.txtFuction9:
 			startActivity(new Intent(getActivity(), TestActivity.class));

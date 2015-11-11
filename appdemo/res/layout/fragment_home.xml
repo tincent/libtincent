@@ -105,7 +105,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能六" />
+            android:text="列表菜单" />
     </LinearLayout>
 
     <LinearLayout
@@ -123,7 +123,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能七" />
+            android:text="应用列表菜单" />
 
         <TextView
             android:id="@+id/txtFuction8"

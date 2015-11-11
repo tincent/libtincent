@@ -116,6 +116,18 @@
             android:name="com.tincent.demo.activity.LocationActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+        
+        <!-- 列表菜单界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.ListMenuActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        
+        <!-- 应用菜单界面 -->
+        <activity
+            android:name="com.tincent.demo.activity.AppListMenuActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
         <!-- 微信分享回馈界面 -->
         <activity

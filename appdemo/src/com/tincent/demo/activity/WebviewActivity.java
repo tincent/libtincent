@@ -255,7 +255,7 @@ public class WebviewActivity extends BaseActivity implements DownloadListener {
 		webpage.webpageUrl = webUrl;
 		WXMediaMessage msg = new WXMediaMessage(webpage);
 		msg.title = title;
-		msg.description = "该内容由亚心健康提供，欢迎访问";
+		msg.description = "听讯信息科技有限责任公司官网";
 		// 这里替换一张自己工程里的图片资源
 		Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 		msg.setThumbImage(thumb);
