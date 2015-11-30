@@ -6,6 +6,8 @@ package com.tincent.android.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.widget.TextView;
+
 /**
  * 听讯科技：正测表达验证工具类
  * 
@@ -17,6 +19,40 @@ public class TXVerifyUtil {
 	static boolean flag = false;
 	static String regex = "";
 
+	/**
+	 * 验证非空
+	 * 
+	 * @return
+	 */
+	public static boolean isEmpty(TextView w, String displayStr) {
+		if (TXStringUtils.empty(w.getText().toString().trim())) {
+			w.setError(displayStr + "不能为空！");
+			w.setFocusable(true);
+			w.requestFocus();
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 验证手机号码
+	 * 
+	 * 移动号码段:139、138、137、136、135、134、150、151、152、157、158、159、182、183、187、188、147
+	 * 联通号码段:130、131、132、136、185、186、145 电信号码段:133、153、180、189
+	 * 
+	 * @param cellphone
+	 * @return
+	 */
+	public static boolean checkCellphone(TextView w) {
+		if (!TXRegexUtil.isMobileNumber(w.getText().toString().trim())) {
+			w.setError("手机号码为11位数字！");
+			w.setFocusable(true);
+			return false;
+		}
+		return true;
+	}
+
+	
 	/**
 	 * 检测字符串是否匹配给定的正则表达式
 	 * 
