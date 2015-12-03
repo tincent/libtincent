@@ -23,18 +23,28 @@ public class TXSHAUtil {
 	 */
 	public static String getSHA1(String str) {
 		try {
-			MessageDigest md5 = MessageDigest.getInstance("SHA-1");
-			md5.update(str.getBytes());
-			byte[] m = md5.digest();// 加密
-			StringBuffer sb = new StringBuffer();
-			for (int i = 0; i < m.length; i++) {
-				sb.append(m[i]);
-			}
-			return sb.toString();
+			MessageDigest sha = MessageDigest.getInstance("SHA-1");
+			sha.update(str.getBytes());
+			byte[] digest = sha.digest();// 加密
+
+			return byte2hex(digest);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
 
+	public static String byte2hex(byte[] b) {
+		String hs = "";
+		String stmp = "";
+		for (int n = 0; n < b.length; n++) {
+			stmp = (java.lang.Integer.toHexString(b[n] & 0XFF));
+			if (stmp.length() == 1) {
+				hs = hs + "0" + stmp;
+			} else {
+				hs = hs + stmp;
+			}
+		}
+		return hs;
 	}
 }
