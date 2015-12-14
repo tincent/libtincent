@@ -187,7 +187,7 @@ public class TXShareFileUtil {
 			throw new NullPointerException(
 					"should call init() before any other method!!!");
 		}
-		preferences.edit().clear();
+		preferences.edit().clear().commit();
 	}
 
 }
