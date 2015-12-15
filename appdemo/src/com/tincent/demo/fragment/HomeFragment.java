@@ -17,6 +17,7 @@ import com.tincent.demo.activity.IPCheckActivity;
 import com.tincent.demo.activity.ListMenuActivity;
 import com.tincent.demo.activity.LocationActivity;
 import com.tincent.demo.activity.NotesActivity;
+import com.tincent.demo.activity.NumListActivity;
 import com.tincent.demo.activity.TestActivity;
 import com.tincent.demo.adapter.AdBannerAdapter;
 import com.tincent.demo.service.DownloadService;
@@ -125,6 +126,8 @@ public class HomeFragment extends BaseFragment {
 			startActivity(new Intent(getActivity(), AppListMenuActivity.class));
 			break;
 		case R.id.txtFuction8:
+			startActivity(new Intent(getActivity(), NumListActivity.class));
+			break;
 		case R.id.txtFuction9:
 			startActivity(new Intent(getActivity(), TestActivity.class));
 			break;
