@@ -32,10 +32,10 @@ public class TXEditText extends EditText {
 		initEditText();
 	}
 
-	// ��ʼ��edittext �ؼ�
+	// 初始化edittext 控件
 	private void initEditText() {
 		setEditTextDrawable();
-		addTextChangedListener(new TextWatcher() { // ���ı����ݸı���м���
+		addTextChangedListener(new TextWatcher() { // 对文本内容改变进行监听
 			public void beforeTextChanged(CharSequence paramCharSequence,
 					int paramInt1, int paramInt2, int paramInt3) {
 			}
