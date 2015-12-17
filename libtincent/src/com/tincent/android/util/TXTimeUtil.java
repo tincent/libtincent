@@ -86,7 +86,7 @@ public class TXTimeUtil {
 	 */
 	public static long convert2long(String date, String format) {
 
-		format = TIME_FORMAT;
+		//format = TIME_FORMAT;
 		SimpleDateFormat sf = new SimpleDateFormat(format);
 		try {
 			return sf.parse(date).getTime();
