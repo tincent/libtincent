@@ -6,12 +6,14 @@
 
     <include layout="@layout/header_bar" />
 
-    <EditText
+    <com.tincent.android.view.TXEditText
         android:id="@+id/edtDomain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:padding="2dp"
+        android:padding="5dp"
+        android:drawableRight="@drawable/icon_lajixiang"
+        android:drawablePadding="5dp"
         android:background="@drawable/shurukuang"
         android:hint="请输入网址：www.baidu.com" />
 
