@@ -83,5 +83,13 @@ public class TXResponseHandler extends JsonHttpResponseHandler {
 			EventBus.getDefault().post(new TXResponseEvent(handler.getRequestTag(), statusCode, "failure", errorResponse));
 		}
 	}
+	
+	@Override
+	public void onFailure(ResponseHandlerInterface instance, int statusCode, Header[] headers, String responseString, Throwable throwable) {
+		if (instance instanceof TXResponseHandler) {
+			TXResponseHandler handler = (TXResponseHandler) instance;
+			EventBus.getDefault().post(new TXResponseEvent(handler.getRequestTag(), statusCode, "failure", throwable));
+		}
+    }
 
 }
