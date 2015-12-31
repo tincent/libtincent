@@ -133,7 +133,7 @@
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/icon_motion"
             android:gravity="center"
-            android:text="主功能八" />
+            android:text="数字列表" />
 
         <TextView
             android:id="@+id/txtFuction9"
