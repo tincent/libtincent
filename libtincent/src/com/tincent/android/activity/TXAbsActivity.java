@@ -19,6 +19,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Handler.Callback;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -42,6 +43,8 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	private int backType = 1;
 	/** 返回两次就退出app **/
 	private int exitCount = 0;
+	/** 屏幕参数 */
+	public DisplayMetrics mDisplayMetrics = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,9 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		EventBus.getDefault().register(this);
 		// 创建主线程消息处理器
 		mMainHandler = new Handler(this);
+		
+		mDisplayMetrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
 
 		Looper looper = mApplication.getWorkLooper();
 		// 创建后台线程消息处理器

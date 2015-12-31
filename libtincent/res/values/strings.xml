@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">libtincent</string>
-    <string name="hello_world">Hello tincent!</string>
     <string name="action_settings">Settings</string>
     
      <!-- 提示文案 -->
