@@ -143,4 +143,28 @@ public class TXHttpUtil {
 		return new SyncHttpClient();
 	}
 
+	/**
+	 * 设置网络请求头信息
+	 * 
+	 * @param context
+	 */
+	public void setHttpClientHeadInfo(Context context) {
+
+		// 平台（ios,android）
+		asyncHttpClient.addHeader("platform", "android");
+		// 时间戳
+		asyncHttpClient.addHeader("timestamp", String.valueOf(System.currentTimeMillis()));
+		// 网卡地址
+		asyncHttpClient.addHeader("mac", TXSysInfoUtils.getMacAddress(context));
+		// 设备操作系统
+		asyncHttpClient.addHeader("osversion", "android");
+		// 设备序列号
+		asyncHttpClient.addHeader("udid", TXSysInfoUtils.readTelephoneSerialNum(context));
+		// 客户端版本
+		asyncHttpClient.addHeader("clientversion", TXSysInfoUtils.getVersionCode(context) + "");
+		// 手机型号
+		asyncHttpClient.addHeader("model", TXSysInfoUtils.getModel());
+		// 网络模式
+		asyncHttpClient.addHeader("carrier", TXSysInfoUtils.getCarrier(context));
+	}
 }

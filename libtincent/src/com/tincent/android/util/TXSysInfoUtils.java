@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.wifi.WifiInfo;
@@ -425,4 +426,39 @@ public class TXSysInfoUtils {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (pxValue / scale + 0.5f);
 	}
+
+	/**
+	 * 获取软件版本号
+	 *
+	 * @param context
+	 * @return 版本号,如：100
+	 */
+	public static int getVersionCode(Context context) {
+		PackageManager packageManager = context.getPackageManager();
+		try {
+			PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+			return packInfo.versionCode;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**
+	 * 获取版本名
+	 *
+	 * @param context
+	 * @return 版本名,如：1.0.0
+	 */
+	public static String getVersionName(Context context) {
+		PackageManager packageManager = context.getPackageManager();
+		try {
+			PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+			return packInfo.versionName;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

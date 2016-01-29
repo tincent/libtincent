@@ -3,9 +3,9 @@
  */
 package com.tincent.android.util;
 
-
 import com.tincent.android.R;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,6 +20,7 @@ import android.widget.Toast;
  * @date 2015.3.18
  * 
  */
+@SuppressLint("InflateParams")
 public class TXToastUtil {
 
 	private static TXToastUtil instance;
@@ -70,16 +71,17 @@ public class TXToastUtil {
 		Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
 	}
 
-	public void showToastDialog(String msg) {
+	public void showToastDialog(String msg, int bgID) {
 
 		LayoutInflater inflater = LayoutInflater.from(context);
 		View view = inflater.inflate(R.layout.toast_dialog, null);
+		view.setBackgroundResource(bgID);
 		TextView txtHint = (TextView) view.findViewById(R.id.txtHint);
 		txtHint.getBackground().setAlpha(150);
 		txtHint.setText(msg);
 		Toast toast = new Toast(context);
-		toast.setGravity(Gravity.CENTER, 0, -300);
-		toast.setDuration(Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.CENTER, 0, 300);
+		toast.setDuration(Toast.LENGTH_SHORT);
 		toast.setView(view);
 		toast.show();
 
