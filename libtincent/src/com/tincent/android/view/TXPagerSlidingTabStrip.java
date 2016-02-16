@@ -16,6 +16,8 @@
 
 package com.tincent.android.view;
 
+import java.util.Locale;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -38,8 +40,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.util.Locale;
 
 import com.tincent.android.R;
 

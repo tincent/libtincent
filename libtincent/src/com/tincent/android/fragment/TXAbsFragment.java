@@ -3,12 +3,7 @@
  */
 package com.tincent.android.fragment;
 
-import com.tincent.android.R;
-import com.tincent.android.util.TXDebug;
-
-import de.greenrobot.event.EventBus;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,8 +11,14 @@ import android.os.Handler.Callback;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+
+import com.tincent.android.R;
+import com.tincent.android.util.TXDebug;
+import com.tincent.android.view.TXProgressDialog;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 听讯科技：抽象页面类
@@ -30,7 +31,7 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 
 	private Context context;
 
-	private ProgressDialog progressDialog;
+	private TXProgressDialog progressDialog;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -46,6 +47,10 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 		EventBus.getDefault().register(this);
 		// 创建主线程消息处理器
 		mHandler = new Handler(this);
+
+		progressDialog = TXProgressDialog.createDialog(context);
+		progressDialog.setCanceledOnTouchOutside(false);
+
 		// 子类初始化数据
 		initData();
 	}
@@ -79,17 +84,24 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 	}
 
 	/**
-	 * 显示加载框
+	 * 显示dialog 但是返回时，留在当前页面
 	 */
-	public void showLoading() {
-		if (progressDialog == null) {
-			progressDialog = new ProgressDialog(context);
-			// progressDialog.setTitle(R.string.please_wait);
-			progressDialog.setMessage(getString(R.string.tip_loading));
-			progressDialog.setIndeterminate(true);
-		}
+	public void showLoadingAndStay() {
+		progressDialog.setMessage(getString(R.string.tip_loading));
 		progressDialog.show();
 	}
+
+	/**
+	 * 显示dialog 但是返回时，留在当前页面
+	 * 
+	 * @param content
+	 *            加载显示的内容
+	 */
+	public void showLoadingAndStay(String content) {
+		progressDialog.setMessage(content);
+		progressDialog.show();
+	}
+ 
 
 	/**
 	 * 隐藏加载框

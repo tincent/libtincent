@@ -3,26 +3,28 @@
  */
 package com.tincent.android.activity;
 
-import com.tincent.android.R;
-import com.tincent.android.TXAbsApplication;
-
-import de.greenrobot.event.EventBus;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Handler.Callback;
 import android.os.Looper;
 import android.os.Message;
-import android.os.Handler.Callback;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+
+import com.tincent.android.R;
+import com.tincent.android.TXAbsApplication;
+import com.tincent.android.view.TXProgressDialog;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 听讯科技：抽象界面类
@@ -38,7 +40,7 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	/** 后台线程消息处理器 **/
 	public Handler mWorkHandler;
 	/** 常用进度条，如：网络加载时所用的加载框 **/
-	private ProgressDialog progressDialog;
+	private TXProgressDialog progressDialog;
 	/** 返回类型 默认 1:返回上个页面 2:连续返回两次就可以退出 3:返回时退出，但是需要二次确认 4:页面自行处理返回操作 **/
 	private int backType = 1;
 	/** 返回两次就退出app **/
@@ -70,9 +72,9 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		});
 
 		// 初始化加载框
-		progressDialog = new ProgressDialog(this);
+		progressDialog = TXProgressDialog.createDialog(mApplication);
 		progressDialog.setCanceledOnTouchOutside(false);
-
+		
 		// 子类设置布局
 		setContentView();
 		// 子类初始化界面

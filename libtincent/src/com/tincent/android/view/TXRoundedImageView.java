@@ -16,8 +16,6 @@
 
 package com.tincent.android.view;
 
-import com.tincent.android.R;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -31,6 +29,8 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
+
+import com.tincent.android.R;
 
 /**
  * 椭圆或圆角矩形图片自定义类
