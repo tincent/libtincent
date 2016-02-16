@@ -72,7 +72,7 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		});
 
 		// 初始化加载框
-		progressDialog = TXProgressDialog.createDialog(mApplication);
+		progressDialog = TXProgressDialog.createDialog(this);
 		progressDialog.setCanceledOnTouchOutside(false);
 		
 		// 子类设置布局
