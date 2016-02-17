@@ -9,8 +9,7 @@
     android:layout_marginTop="20dp"
     android:background="@drawable/hint_frame_bg"
     android:drawablePadding="20dp"
-    android:drawableTop="@drawable/ic_queding"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:padding="10dp"
     android:text="注册成功"
     android:textColor="@android:color/white" />

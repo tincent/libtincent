@@ -71,6 +71,14 @@ public class TXToastUtil {
 		Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
 	}
 
+	/**
+	 * 自定义toast
+	 * 
+	 * @param msg
+	 *            提示内容
+	 * @param bgID
+	 *            背景id
+	 */
 	public void showToastDialog(String msg, int bgID) {
 
 		LayoutInflater inflater = LayoutInflater.from(context);
