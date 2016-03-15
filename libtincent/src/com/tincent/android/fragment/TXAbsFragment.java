@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.tincent.android.R;
 import com.tincent.android.util.TXDebug;
@@ -32,6 +33,9 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 	private Context context;
 
 	private TXProgressDialog progressDialog;
+
+	/** 根布局 */
+	public FrameLayout containerRoot;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -57,9 +61,13 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = createView(inflater, container, savedInstanceState);
-		initView(rootView);
-		return rootView;
+		containerRoot = (FrameLayout) inflater.inflate(R.layout.fragment_main, null);
+
+		View contentView = createView(inflater);
+		containerRoot.addView(contentView);
+		initView(containerRoot);
+
+		return containerRoot;
 	}
 
 	@Override
@@ -101,7 +109,6 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 		progressDialog.setMessage(content);
 		progressDialog.show();
 	}
- 
 
 	/**
 	 * 隐藏加载框
@@ -120,7 +127,7 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 	 * @param savedInstanceState
 	 * @return
 	 */
-	public abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+	public abstract View createView(LayoutInflater inflater);
 
 	/**
 	 * 初始化界面，需要子类实现

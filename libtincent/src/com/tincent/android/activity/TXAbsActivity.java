@@ -5,7 +5,6 @@ package com.tincent.android.activity;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.os.Bundle;
@@ -17,7 +16,9 @@ import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.tincent.android.R;
@@ -47,6 +48,8 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	private int exitCount = 0;
 	/** 屏幕参数 */
 	public DisplayMetrics mDisplayMetrics = null;
+	/** 根布局 */
+	public FrameLayout containerRoot;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,7 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		EventBus.getDefault().register(this);
 		// 创建主线程消息处理器
 		mMainHandler = new Handler(this);
-		
+
 		mDisplayMetrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
 
@@ -74,9 +77,19 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		// 初始化加载框
 		progressDialog = TXProgressDialog.createDialog(this);
 		progressDialog.setCanceledOnTouchOutside(false);
-		
+
+		init();
+	}
+
+	/**
+	 * 初始化
+	 */
+	private void init() {
+		setContentView(R.layout.activity_main);
+		containerRoot = (FrameLayout) findViewById(R.id.container);
 		// 子类设置布局
-		setContentView();
+		View contentView = inflateContentView();
+		containerRoot.addView(contentView);
 		// 子类初始化界面
 		initView();
 		// 子类初始化数据
@@ -103,7 +116,7 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	/**
 	 * 设置acitivty的布局文件
 	 */
-	public abstract void setContentView();
+	public abstract View inflateContentView();
 
 	/**
 	 * 初始化数据
@@ -313,14 +326,14 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	 * 退出整个APP，做一些清理工作
 	 */
 	public void exitApp() {
-		//mApplication.exitApp();
+		// mApplication.exitApp();
 	}
 
 	/**
 	 * 处理点击返回键时的操作
 	 */
 	public void processBackPage() {
-		
+
 	}
 
 	/**
