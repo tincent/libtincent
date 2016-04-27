@@ -86,10 +86,12 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	 */
 	private void init() {
 		setContentView(R.layout.activity_main);
-		containerRoot = (FrameLayout) findViewById(R.id.container);
+		//containerRoot = (FrameLayout) findViewById(R.id.container);
 		// 子类设置布局
-		View contentView = inflateContentView();
-		containerRoot.addView(contentView);
+		//View contentView = inflateContentView();
+		//containerRoot.addView(contentView);
+		// 子类设置布局
+		setContentView();
 		// 子类初始化界面
 		initView();
 		// 子类初始化数据
@@ -116,7 +118,12 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	/**
 	 * 设置acitivty的布局文件
 	 */
-	public abstract View inflateContentView();
+	//public abstract View inflateContentView();
+	
+	/**
+	 * 设置acitivty的布局文件
+	 */
+	public abstract void setContentView();
 
 	/**
 	 * 初始化数据

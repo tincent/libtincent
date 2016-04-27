@@ -61,13 +61,18 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		containerRoot = (FrameLayout) inflater.inflate(R.layout.fragment_main, null);
+		//containerRoot = (FrameLayout) inflater.inflate(R.layout.fragment_main, null);
 
-		View contentView = createView(inflater);
-		containerRoot.addView(contentView);
-		initView(containerRoot);
+		//View contentView = createView(inflater);
+		//containerRoot.addView(contentView);
+		//initView(containerRoot);
 
-		return containerRoot;
+		//return containerRoot;
+		
+		View rootView = createView(inflater, container, savedInstanceState);
+		initView(rootView);
+		
+		return rootView;
 	}
 
 	@Override
@@ -127,7 +132,17 @@ public abstract class TXAbsFragment extends Fragment implements OnClickListener,
 	 * @param savedInstanceState
 	 * @return
 	 */
-	public abstract View createView(LayoutInflater inflater);
+	//public abstract View createView(LayoutInflater inflater);
+	
+	/**
+	 * 创建界面，需要子类实现
+	 * 
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @return
+	 */
+	public abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
 	/**
 	 * 初始化界面，需要子类实现
