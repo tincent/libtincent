@@ -101,6 +101,21 @@ public class TXHttpUtil {
 	}
 
 	/**
+	 * 以delete方式进行络请求(参数entity类型)
+	 * 
+	 * @param context
+	 * @param url
+	 *            网络地址
+	 * @param entity
+	 *            请求参数
+	 * @param contentType
+	 * @param responseHandler
+	 */
+	public void delete(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+		asyncHttpClient.delete(url, params, responseHandler);
+	}
+
+	/**
 	 * 以POST方式进行网络请求
 	 * 
 	 * @param url
@@ -166,5 +181,23 @@ public class TXHttpUtil {
 		asyncHttpClient.addHeader("model", TXSysInfoUtils.getModel());
 		// 网络模式
 		asyncHttpClient.addHeader("carrier", TXSysInfoUtils.getCarrier(context));
+	}
+
+	/**
+	 * 设置headers
+	 * 
+	 * @param content_type
+	 */
+	public void addContentType(String content_type) {
+		asyncHttpClient.addHeader("Content-Type", content_type);
+	}
+
+	/**
+	 * 设置headers
+	 * 
+	 * @param UID
+	 */
+	public void addHeader(String UID) {
+		asyncHttpClient.addHeader("UID", UID);
 	}
 }

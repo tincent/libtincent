@@ -43,7 +43,7 @@
         <!-- View background -->
         <attr name="android:background" />
     </declare-styleable>
-    <declare-styleable name="UnderlinePageIndicator">
+    <declare-styleable name="TXUnderlinePageIndicator">
 
         <!-- Whether or not the selected indicator fades. -->
         <attr name="fades" format="boolean" />

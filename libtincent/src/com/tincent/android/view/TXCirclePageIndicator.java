@@ -107,7 +107,7 @@ public class TXCirclePageIndicator extends View implements TXPageIndicator {
 
 		Drawable background = a.getDrawable(R.styleable.CirclePageIndicator_android_background);
 		if (background != null) {
-			setBackground(background);
+			setBackgroundDrawable(background); 
 		}
 
 		a.recycle();
@@ -218,7 +218,7 @@ public class TXCirclePageIndicator extends View implements TXPageIndicator {
 		int longPaddingAfter;
 		int shortPaddingBefore;
 		if (mOrientation == HORIZONTAL) {
-			longSize = getWidth();
+			longSize = getMeasuredWidth();
 			longPaddingBefore = getPaddingLeft();
 			longPaddingAfter = getPaddingRight();
 			shortPaddingBefore = getPaddingTop();
