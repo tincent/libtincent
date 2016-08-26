@@ -33,7 +33,7 @@ public class TXVerifyUtil {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 验证手机号码
 	 * 
@@ -52,7 +52,6 @@ public class TXVerifyUtil {
 		return true;
 	}
 
-	
 	/**
 	 * 检测字符串是否匹配给定的正则表达式
 	 * 
@@ -103,7 +102,7 @@ public class TXVerifyUtil {
 	 * @return
 	 */
 	public static boolean checkCellphone(String cellphone) {
-		String regex = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$";
+		String regex = "^((13[0-9])|(14[5,7])|(15[^4,\\D])|(17[0,6,7,8])|(18[0-9]))\\d{8}$";
 		return check(cellphone, regex);
 	}
 
@@ -150,7 +149,7 @@ public class TXVerifyUtil {
 		Pattern pattern = Pattern.compile("[0-9]*");
 		return pattern.matcher(num).matches();
 	}
-	
+
 	/**
 	 * 检测字符串中是否包含用户名和密码
 	 * 
