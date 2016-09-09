@@ -50,6 +50,8 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 	public DisplayMetrics mDisplayMetrics = null;
 	/** 根布局 */
 	public FrameLayout containerRoot;
+	/** 屏幕宽度 */
+	public int screenWidth;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,23 @@ public abstract class TXAbsActivity extends FragmentActivity implements OnClickL
 		EventBus.getDefault().unregister(this);
 		// 删除Activity
 		mApplication.removeActivity(this);
+	}
+
+	/**
+	 * @return 屏幕宽度
+	 */
+	public int getScreenWidth() {
+		if (mDisplayMetrics.widthPixels > 900) {
+			screenWidth = 1080;
+		} else if (mDisplayMetrics.widthPixels > 700 && mDisplayMetrics.widthPixels <= 900) {
+			screenWidth = 720;
+		} else if (mDisplayMetrics.widthPixels >= 500 && mDisplayMetrics.widthPixels <= 700) {
+			screenWidth = 640;
+		} else {
+			screenWidth = 480;
+		}
+
+		return screenWidth;
 	}
 
 	/**

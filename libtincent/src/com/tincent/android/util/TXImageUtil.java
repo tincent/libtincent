@@ -1,9 +1,8 @@
 /**
- * All Rights Reserved by tincent.com
+ * 
  */
 package com.tincent.android.util;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,21 +14,21 @@ import java.net.URL;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.Config;
 import android.os.Build;
 import android.os.StrictMode;
 
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.DiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.utils.IoUtils.CopyListener;
 import com.tincent.android.TXConstants;
 
 /**
- * 听讯科技：图片异步加载缓存类
+ * 图片异步加载缓存类
  * 
  * @author hui.wang
  * @date 2015.3.20
@@ -77,17 +76,18 @@ public class TXImageUtil {
 		// ImageLoaderConfiguration.createDefault(this);
 		// method.
 		String reserveCacheDir = "/data/data/" + context.getPackageName() + "/cache/";
-		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
-				.memoryCache(new UsingFreqLimitedMemoryCache(10 * 1024 * 1024))
-				// .diskCacheSize(50 * 1024 * 1024)
-				.diskCache(new UnlimitedDiscCache((new File(cacheDir)), new File(reserveCacheDir))).diskCacheFileNameGenerator(new Md5FileNameGenerator())
-				.tasksProcessingOrder(QueueProcessingType.LIFO).writeDebugLogs() // Remove
-																					// for
-																					// release
-																					// app
-				.build();
+		ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
+		config.threadPriority(Thread.NORM_PRIORITY - 2);
+		config.denyCacheImageMultipleSizesInMemory();
+		config.diskCache(new UnlimitedDiskCache((new File(cacheDir)), new File(reserveCacheDir)));
+		config.memoryCache(new UsingFreqLimitedMemoryCache(10 * 1024 * 1024));
+		config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
+		config.diskCacheSize(50 * 1024 * 1024); // 50 MiB
+		config.tasksProcessingOrder(QueueProcessingType.LIFO);
+		config.writeDebugLogs(); // Remove for release app
+
 		// Initialize ImageLoader with configuration.
-		ImageLoader.getInstance().init(config);
+		ImageLoader.getInstance().init(config.build());
 	}
 
 	/**
@@ -147,118 +147,5 @@ public class TXImageUtil {
 		inStream.close();
 		// 关闭流一定要记得。
 		return outstream.toByteArray();
-	}
-
-	/**
-	 * 
-	 * @param bitmap存文件
-	 */
-	public static String saveImage(Bitmap bitmap, String dir) {
-		File file = null;
-		FileOutputStream fos = null;
-		BufferedOutputStream bos = null;
-		ByteArrayOutputStream baos = null; // 字节数组输出流
-		try {
-			baos = new ByteArrayOutputStream();
-			bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-			byte[] byteArray = baos.toByteArray();// 字节数组输出流转换成字节数组
-			String picName = dir + System.currentTimeMillis() + ".JPEG";
-			file = new File(picName);
-			// 将字节数组写入到刚创建的图片文件中
-			fos = new FileOutputStream(file);
-			bos = new BufferedOutputStream(fos);
-			bos.write(byteArray);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		} finally {
-			if (baos != null) {
-				try {
-					baos.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			if (bos != null) {
-				try {
-					bos.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			if (fos != null) {
-				try {
-					fos.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-		return file.getPath();
-
-	}
-
-	/**
-	 * 压缩图片尺寸
-	 * 
-	 * @param file
-	 * @return
-	 */
-	public static byte[] compressImageFromFile(String file) {
-		TXDebug.o(new Exception(), "image file size = " + new File(file).length() / 1024);
-		BitmapFactory.Options newOpts = new BitmapFactory.Options();
-		newOpts.inJustDecodeBounds = true;// 只读边,不读内容
-		Bitmap bitmap = BitmapFactory.decodeFile(file, newOpts);
-
-		newOpts.inJustDecodeBounds = false;
-		int w = newOpts.outWidth;
-		int h = newOpts.outHeight;
-		TXDebug.o(new Exception(), "origin image width : " + w + ", height : " + h);
-		float height = 960f;//
-		float weight = 540f;//
-		// float height = 800f;//
-		// float weight = 480f;//
-		int ratio = 1;
-		if (w > h && w > weight) {
-			ratio = (int) (newOpts.outWidth / weight);
-		} else if (w < h && h > height) {
-			ratio = (int) (newOpts.outHeight / height);
-		}
-		if (ratio <= 0) {
-			ratio = 1;
-		}
-
-		newOpts.inSampleSize = ratio;// 设置采样率
-
-		newOpts.inPreferredConfig = Config.RGB_565;// 该模式是默认的,可不设
-		newOpts.inPurgeable = true;// 同时设置才会有效
-		newOpts.inInputShareable = true;// 。当系统内存不够时候图片自动被回收
-
-		bitmap = BitmapFactory.decodeFile(file, newOpts);
-		TXDebug.o(new Exception(), "after measure compress image width : " + bitmap.getWidth() + ", height : " + bitmap.getHeight() + ", ratio : " + ratio);
-		return compressImageFromBitmap(bitmap);
-	}
-
-	/**
-	 * 压缩图片质量
-	 * 
-	 * @param bmp
-	 * @return
-	 */
-	public static byte[] compressImageFromBitmap(Bitmap bmp) {
-		TXDebug.o(new Exception(), "before quality compress, size = " + bmp.getByteCount() / 1024);
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		int options = 100;// 个人喜欢从80开始,
-		bmp.compress(Bitmap.CompressFormat.JPEG, options, baos);
-		TXDebug.o(new Exception(), "quality options = " + options + ", size = " + baos.toByteArray().length / 1024);
-		while (baos.toByteArray().length / 1024 > 100) {
-			baos.reset();
-			options -= 10;
-			bmp.compress(Bitmap.CompressFormat.JPEG, options, baos);
-			TXDebug.o(new Exception(), "quality options = " + options + ", size = " + baos.toByteArray().length / 1024);
-		}
-		return baos.toByteArray();
 	}
 }

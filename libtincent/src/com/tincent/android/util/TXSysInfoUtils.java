@@ -360,6 +360,24 @@ public class TXSysInfoUtils {
 		return mDisplayMetrics.density;
 	}
 
+	/**
+	 * @return 屏幕宽度
+	 */
+	public static int getScreenWidth(Activity activity) {
+		int screenWidth = 0;
+		if (getDisplayMetrics(activity).widthPixels > 900) {
+			screenWidth = 1080;
+		} else if (getDisplayMetrics(activity).widthPixels > 700 && getDisplayMetrics(activity).widthPixels <= 900) {
+			screenWidth = 720;
+		} else if (getDisplayMetrics(activity).widthPixels >= 500 && getDisplayMetrics(activity).widthPixels <= 700) {
+			screenWidth = 640;
+		} else {
+			screenWidth = 480;
+		}
+
+		return screenWidth;
+	}
+
 	public static boolean hasEclair() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR;
 	}
